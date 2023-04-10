@@ -1,0 +1,112 @@
+{% extends "layouts/boilerplate.html" %}
+
+{% block body_content %}
+
+<h3>Item Details</h3>
+
+<div class="row">
+
+    <div class="col-md-4">
+
+        <div class="card mb-3">
+
+            <div class="card-header">
+
+                <h4 class="card-title">{{ item.name }}</h4>
+
+                {% if item.memo %}
+                <p class="card-text">{{ item.memo }}</p>
+                {% endif %}
+
+            </div>
+
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cost: {{ item.cost }}</li>
+
+                <li class="list-group-item">Priority: {{ item.priority }}</li>
+
+                {% if item.requirement %}
+                <li class="list-group-item">
+
+                    <div>
+
+                        <h5>Requirements: </h5>
+
+                        {% for requirement in item.requirement %}
+                        <p>{{ requirement }}</p>
+                        {% endfor %}
+
+                    </div>
+
+                </li>
+                {% endif %}
+
+            </ul>
+
+            <div class="card-body">
+                <a class="card-link btn btn-outline-secondary" href="{{ url_for('pages.edit_item', _id=item._id) }}">
+                    EDIT
+                </a>
+                <a class="card-link btn btn-outline-secondary" href="{{ url_for('pages.item_delete', _id=item._id) }}">
+                    DELETE
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-8">
+
+        <h4 class="text-primary">Choices</h4>
+
+        {% if choices_data %}
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Where</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for choice in choices_data %}
+
+                <tr>
+                    <td>{{ choice.name }}</td>
+                    <td>{{ choice.price }}</td>
+                    <td>{{ choice.brand }}</td>
+                    <td>
+                        <a href="{{ choice.address }}" target="_blank" rel="noopener noreferrer" class="links">{{ choice.where }}</a>
+                    </td>
+                    <td>
+                        <a href="{{ url_for('pages.choice_delete', _idI=item._id, _idC=choice._id) }}" class="links">Delete</a>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+        {% else %}
+
+        <p>No choices of the item.</p>
+
+        {% endif %}
+
+        <div>
+            <a class="btn btn-outline-primary" href="{{ url_for('pages.add_choice', _id=item._id) }}">ADD</a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

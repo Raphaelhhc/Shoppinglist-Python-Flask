@@ -1,0 +1,2 @@
+FLASK_APP=shoppinglist
+FLASK_DEBUG=1

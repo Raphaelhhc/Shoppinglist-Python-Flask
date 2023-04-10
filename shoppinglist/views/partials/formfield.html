@@ -1,0 +1,32 @@
+<!-- Fiel for render text -->
+{% macro render_text_field(field) %}
+
+<div class="mb-3">
+
+    {{ field.label(class_="form-label") }}
+    {{ field(class_="form-control") }}
+
+    {%- for error in field.errors %}
+    <span>{{ error }}</span>
+    {% endfor %}
+
+</div>
+
+{% endmacro %}
+
+
+<!-- Fiel for render text -->
+{% macro render_area_field(field) %}
+
+<div class="mb-3">
+
+    {{ field.label(class_="form-label") }}
+    {{ field(rows=4, class_="form-control") }}
+
+    {%- for error in field.errors %}
+    <span>{{ error }}</span>
+    {% endfor %}
+
+</div>
+
+{% endmacro %}

@@ -1,0 +1,16 @@
+
+
+.links {
+    color: #808080;
+    text-decoration: none;
+}
+
+
+.links:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-colour);
+}
+
+.formPadding {
+    padding-top: 2rem;
+}

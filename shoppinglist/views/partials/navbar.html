@@ -1,0 +1,52 @@
+{% macro navbar(email) %}
+
+<nav class="navbar sticky-top navbar-expand-lg" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+
+        <a class="navbar-brand" href="/">Shopping List</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+
+                {% if not email %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pages.register') }}">Register</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pages.login') }}">Login</a>
+                </li>            
+                
+                {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pages.index') }}">To Buy List</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pages.boughtList') }}">Bought List</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pages.logout') }}">Logout</a>
+                </li>
+
+                {% endif %}
+
+            </ul>
+
+        </div>
+
+
+    </div>
+</nav>
+
+{% endmacro %}

@@ -1,0 +1,27 @@
+{% from "partials/formfield.html" import render_text_field %}
+{% extends "layouts/boilerplate.html" %}
+
+{% block body_content %}
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+
+    <h3>Add Item</h3>
+
+    <form name="add_item" method="post" novalidate>
+
+      {{ form.hidden_tag() }}
+
+      {{ render_text_field(form.name) }}
+      {{ render_text_field(form.cost) }}
+      {{ render_text_field(form.priority) }}
+
+      {{ form.submit(class_="btn btn-primary") }}
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock %}

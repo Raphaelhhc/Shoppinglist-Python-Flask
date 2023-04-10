@@ -1,0 +1,28 @@
+{% from "partials/formfield.html" import render_text_field, render_area_field %}
+{% extends "layouts/boilerplate.html" %}
+
+{% block body_content %}
+
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+
+    <h3>Edit Item</h3>
+
+    <form name="edit_item" method="post" novalidate>
+
+      {{ form.hidden_tag() }}
+
+      {{ render_text_field(form.name) }}
+      {{ render_text_field(form.cost) }}
+      {{ render_text_field(form.priority) }}
+      {{ render_text_field(form.memo) }}
+      {{ render_area_field(form.requirement) }}
+
+      {{ form.submit(class_="btn btn-primary") }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

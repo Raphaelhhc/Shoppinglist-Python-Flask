@@ -1,0 +1,66 @@
+{% extends "layouts/boilerplate.html" %}
+
+
+{% block body_content %}
+
+<h3>To Buy List</h3>
+
+{% if items_data %}
+
+<table class="table">
+
+  <colgroup>
+    <col style="width: 40%">
+    <col style="width: 20%">
+    <col style="width: 20%">
+  </colgroup>
+
+  <thead>
+    <tr class="table__header table-active">
+      <th class="table__cell table__cell--header"><p>ITEM</p></th>
+      <th class="table__cell table__cell--header"><p>COST</p></th>
+      <th class="table__cell table__cell--header"><p>PRIORITY</p></th>
+      <th class="table__cell table__cell--header"></th>
+      <th class="table__cell table__cell--header"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    {% for item in items_data %}
+    {% if not item.bought %}
+
+    <tr>
+      <td class="table__cell">
+        <a href="{{ url_for('pages.item_detail', _id=item._id) }}" class="links">{{ item.name }}</a>
+      </td>
+      <td class="table__cell">{{ item.cost }}</td>
+      <td class="table__cell">{{ item.priority }}</td>
+      <td class="table__cell">
+        <a href="{{ url_for('pages.item_bought', _id=item._id) }}" class="links">Bought!</a>
+      </td>
+      <td class="table__cell">
+        <a href="{{ url_for('pages.item_delete', _id=item._id) }}" class="links">Delete</a>
+      </td>
+    </tr>
+
+    {% endif %}
+    {% endfor %}
+
+
+  </tbody>
+
+</table>
+
+{% else %}
+
+<p>No shopping items.</p>
+
+{% endif %}
+
+<div>
+  <a class="btn btn-outline-secondary" 
+  href="{{ url_for('pages.add_item') }}">ADD</a>
+</div>
+
+{% endblock %}

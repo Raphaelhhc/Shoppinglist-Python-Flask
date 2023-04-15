@@ -1,7 +1,8 @@
 flask
 python-dotenv
 flask-wtf
-pymongo
+pymongo[srv]
 passlib
 flask-security
 email_validator
+gunicorn

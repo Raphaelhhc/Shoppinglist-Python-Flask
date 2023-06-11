@@ -89,7 +89,7 @@ def logout():
     del session["email"]
     del session["user_id"]
 
-    return redirect(url_for(".home", title="Home"))
+    return redirect(url_for(".index"))
 
 
 # WEB PAGE

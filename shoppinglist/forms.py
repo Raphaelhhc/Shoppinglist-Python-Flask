@@ -57,7 +57,7 @@ class LoginForm(FlaskForm):
 class ItemForm(FlaskForm):
 
     name = StringField("Name", validators=[InputRequired()])
-    cost = IntegerField("Cost", validators=[InputRequired(), NumberRange(
+    cost = IntegerField("Cost(USD)", validators=[InputRequired(), NumberRange(
         min=0, message="Invalid for number below 0")])
     priority = StringField("Priority", validators=[InputRequired()])
     submit = SubmitField("Add Item")
@@ -73,7 +73,7 @@ class ExtendedItemForm(ItemForm):
 class ChoiceForm(FlaskForm):
 
     name = StringField("Name", validators=[InputRequired()])
-    price = IntegerField("Price", validators=[InputRequired(), NumberRange(min=0, message="Invalid for number below 0")])
+    price = IntegerField("Price(USD)", validators=[InputRequired(), NumberRange(min=0, message="Invalid for number below 0")])
     brand = StringField("Brand")
     where = StringField("Where to Buy")
     address = URLField("Address or Link")

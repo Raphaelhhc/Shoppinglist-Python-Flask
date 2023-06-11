@@ -39,7 +39,7 @@ git clone https://github.com/Raphaelhhc/Shoppinglist-Python-Flask
 
 ### 2. Change into the project directory
 ```
-cd <Project Directory>
+cd Shoppinglist-Python-Flask
 ```
 
 ### 3. Create a virtual environment
@@ -78,7 +78,7 @@ flask run
  - Shopping List Page
 ![App Screenshot](https://res.cloudinary.com/doe9mfetd/image/upload/v1686472539/Shopping-List_GITHUB/Shopping_List_Page_vprnsl.png)
  - Item Detail Page
-![App Screenshot](https://res.cloudinary.com/doe9mfetd/image/upload/v1686472539/Shopping-List_GITHUB/Item_Detail_Page_dcfovd.png)
+![App Screenshot](https://res.cloudinary.com/doe9mfetd/image/upload/v1686473367/Shopping-List_GITHUB/Item_Detail_Page_dcfovd.png)
  - Bought List
-![App Screenshot](https://res.cloudinary.com/doe9mfetd/image/upload/v1686472539/Shopping-List_GITHUB/Bought_List_Page_exvwku.png)
+![App Screenshot](https://res.cloudinary.com/doe9mfetd/image/upload/v1686473416/Shopping-List_GITHUB/Bought_List_Page_exvwku.png)
 
